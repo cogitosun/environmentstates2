@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  namespace: argocd
+spec:
+    project: guestbook
+    source:
+        repoURL: https://github.com/cogitosun/argocd.git
+        targetRevision: HEAD
+        path: dev
+        helm:
+          parameters:
+            - name: repoName
+              value: argocd
+            - name: imageVersion
+              value: 1.0.0
+            - name: deliveryVersion
+              value: master
+          valueFiles:
+            - values/tools.yaml
+    destination:
+      namespace: argocd
+      name: in-cluster
+    syncPolicy:
+        automated:
+            prune: true
+            selfHeal: false
