@@ -8,13 +8,13 @@ metadata:
 spec:
     project: guestbook
     source:
-        repoURL: https://github.com/cogitosun/argocd.git
+        repoURL: https://github.com/cogitosun/guestbook.git
         targetRevision: HEAD
         path: dev
         helm:
           parameters:
             - name: repoName
-              value: argocd
+              value: guestbook
             - name: imageVersion
               value: 1.0.0
             - name: deliveryVersion
