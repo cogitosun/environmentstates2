@@ -6,7 +6,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
   namespace: argocd
 spec:
-    project: guestbook2
+    project: default
     source:
         repoURL: https://github.com/cogitosun/guestbook2.git
         targetRevision: master
