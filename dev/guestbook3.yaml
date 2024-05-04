@@ -10,7 +10,7 @@ spec:
     source:
         repoURL: https://github.com/cogitosun/guestbook2.git
         targetRevision: master
-        path: .
+        path: values
         helm:
           parameters:
             - name: repoName
